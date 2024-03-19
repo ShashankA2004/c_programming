@@ -20,7 +20,7 @@ main()
     struct queue q;
     int ch,data;
     initQ(&q);
-    printf("enter the valve of n \n");
+    printf("enter the size \n");
     scanf("%d",&n);
     while(1)
     {
@@ -54,14 +54,13 @@ main()
                                 printf("\n%d",data);
                             }
                             break;
-            case 3:
-                                if(isEmpty(&q))
+            case 3:if(isEmpty(&q))
                                 {
                                     s=0;
                                 }
                                 else
                                     s=size(&q);
-                                printf("Size=%d",s);
+                                printf("\nSize=%d\n",s);
                                 break;
 
                 case 4: if(isEmpty(&q))
@@ -71,7 +70,7 @@ main()
                                 else
                                 {
                                     data=getFront(&q);
-                                    printf("&d",data);
+                                    printf("%d",data);
                                 }
                                 break;
                 case 5:
@@ -97,7 +96,7 @@ void enqueue(struct queue *q,int data,int n)
     for(i=0;i<1;i++)
     {
     q->rear++;
-    q->e[i][q->rear]=data;
+    q->e[q->rear]=data;
     }
 }
 int isFull(struct queue *q ,int n)
@@ -135,6 +134,6 @@ void display(struct queue *q)
     int i,j=0;
     for(i=q->front;j,i<=q->rear;i++,j++)
     {
-        printf("%d\n",q->e[j][j]);
+        printf("%d\n",q->e[i]);
     }
 }
