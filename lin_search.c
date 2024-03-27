@@ -1,54 +1,38 @@
-#include<stdio.h>
-void read(float[],int);
-void dis(float[],int );
-int ls(float[],int,float);
-main()
-{
-    int n,count;
-    float m[100],key;
-    printf("enter a number\n");
-    scanf("%d",&n);
-    read(m,n);
-    dis(m,n);
-    printf("enter a key\n");
-    scanf("%f",&key);
-    count=ls(m,n,key);
-    printf("%d",count);
-    if(count>0)
-        printf("key found\n");
-    else
-        printf("key not found\n");
-}
+ #include<stdio.h>
 
-void read(float m[100],int n)
+int linearSearch(int A[20],int n,int key)
 {
+    int count=0;
     int i;
     for(i=0;i<n;i++)
     {
-    scanf("%f",&m[i]);
-    }
-
-}
-
-void dis(float m[100],int n)
-{
-    int i;
-    for(i=0;i<n;i++)
-    {
-        printf("%f\n",m[i]);
-    }
-}
-
-int ls(float m[100],int n,float key )
-{
-    int count=0,i;
-    for(i=0;i<n;i++)
-    {
-        if(key==m[i])
-        {
+        if(A[i]==key)
             count++;
-        }
     }
-    printf("\n%d\n",count);
     return count;
 }
+
+main()
+{
+    FILE *iptr,*optr;
+    iptr=fopen("read.txt","r");
+    optr=fopen("LinearSearch.txt","w");
+
+    int n=10,A[20];
+    int i;
+    for(i=0;i<n;i++)
+    {
+        fscanf(iptr,"%d",&A[i]);
+    }
+
+    int key;
+    printf("Enter key element: ");
+    scanf("%d",&key);
+    int num;
+    num=linearSearch(A,n,key);
+    fprintf(optr,"%d occurs %d times",key,num);
+
+    fclose(iptr);
+    fclose(optr);
+}
+
