@@ -1,5 +1,5 @@
 
-int strStrNaive(char *haystack, char *needle) {
+int strStr(char *haystack, char *needle) {
     int haystackLen = strlen(haystack);
     int needleLen = strlen(needle);
 
